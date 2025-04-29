@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    user-select: none !important;
+}
+
+* {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.login-center {
+
+}
+
+.warning {
+    font-weight: bolder;
+    transform: translateY(-300px);
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+
+
+.show-hidden {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.show-login {
+    transform: translateY(0px);
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.password {
+    border: none transparent 0px;
+    outline: #e3e6eb solid 1px;
+    width: 200px;
+    height: 40px;
+    padding-left: 7px;
+    font-size: 14px;
+}
+
+.password:focus {
+    border-left: #436cf2 solid 3px;
+}
+
+.password:focus + .login {
+    opacity: 0;
+    pointer-events: none !important;
+}
+
+.login {
+    transform: translateY(300px);
+    opacity: 0;
+}
+
+.login {
+    background-color: #1464ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    margin-top: 20px;
+    height: 45px;
+    color: white;
+    border: 0px transparent none !important;
+    font-weight: bolder;
+    font-size: 15px;
+    transition: all 0.22s ease-in-out;
+}
+
+.login:hover {
+    cursor: pointer;
+    background-color: #163e8d;
+}
+
+.login:active {
+    outline: #407ffc solid 4px;
+    outline-offset: 2px;
+}
