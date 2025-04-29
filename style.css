@@ -76,7 +76,21 @@ body {
     border: 0px transparent none !important;
     font-weight: bolder;
     font-size: 15px;
-    transition: all 0.22s ease-in-out;
+    transition: all 0.22s ease-in !important;
+}
+
+.logout {
+    background-color: #ff1414 !important;
+}
+
+.logout:hover {
+    cursor: pointer;
+    background-color: #8d1616 !important;
+}
+
+.logout:active {
+    outline: #fc4040 solid 4px !important;
+    outline-offset: 2px;
 }
 
 .login:hover {

@@ -45,26 +45,50 @@ const loginButton = document.getElementById("login-button"); // Select the login
 // Function to add CSS for .show-hidden and .show-login styles
 function addStylesToElements() {
     // Add styles for .show-hidden to the warning label
-    warningLabel.style.transition = "all 1.3s ease-in-out";  // Changed to 1.3 seconds
+    warningLabel.style.transition = "all 0.3s ease-in-out";  // Changed to 0.3 seconds
     warningLabel.style.transform = "translateY(0px)";
     warningLabel.style.opacity = "1";
 
     // Add styles for .show-login to the login button
-    loginButton.style.transition = "all 1.3s ease-in-out";   // Changed to 1.3 seconds
+    loginButton.style.transition = "all 0.3s ease-in-out";   // Changed to 0.3 seconds
     loginButton.style.transform = "translateY(0px)";
     loginButton.style.opacity = "1";
+
+    // Change the width of the login button to 451.77px after the correct password
+    loginButton.style.width = "451.77px";  // Set the width to 451.77px after the correct password
+}
+
+// Function to change the login button to the "STOP" text and apply the .logout class
+function changeLoginToLogout() {
+    loginButton.textContent = "STOP";  // Change the button text to "STOP"
+    loginButton.classList.add("logout"); // Apply the .logout class to change the button style
 }
 
 // Listen for user input
 passwordInput.addEventListener("input", () => {
     const input = passwordInput.value;
-    
+
     if (input === correctPassword) {
         warningLabel.classList.add("show-hidden");  // Show the warning label
         loginButton.classList.add("show-login");    // Add .show-login class to the login button
         addStylesToElements();                      // Add inline CSS for both elements
+
+        // Delete the password input element after correct password
+        passwordInput.remove();                     // This removes the password input from the DOM
     } else {
         warningLabel.classList.remove("show-hidden");
         loginButton.classList.remove("show-login");
+    }
+});
+
+// Listen for login button click to change its text and apply the .logout class
+loginButton.addEventListener("click", () => {
+    // Only change the button if it hasn't been clicked yet
+    if (loginButton.textContent !== "STOP") {
+        changeLoginToLogout();  // Change the login button text and apply logout styles
+    } else {
+        // Close the window when the button is clicked after "STOP"
+        // Redirect to Google Classroom (or close the window as requested)
+        window.location.href = "https://classroom.google.com/";
     }
 });
