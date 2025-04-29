@@ -92,3 +92,17 @@ loginButton.addEventListener("click", () => {
         window.location.href = "https://classroom.google.com/";
     }
 });
+
+// Listen for CTRL + ALT + B key press to perform the same action as the "STOP" button
+document.addEventListener("keydown", (event) => {
+    // Check if CTRL + ALT + B are pressed
+    if (event.ctrlKey && event.altKey && event.key === "b") {
+        // Only change the button if it hasn't been clicked yet
+        if (loginButton.textContent !== "STOP") {
+            changeLoginToLogout();  // Change the login button text and apply logout styles
+        } else {
+            // Redirect to Google Classroom (or close the window as requested)
+            window.location.href = "https://classroom.google.com/";
+        }
+    }
+});
